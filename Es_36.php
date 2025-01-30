@@ -1,3 +1,7 @@
+<?php 
+    include("connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +10,14 @@
     <title>Es 36 php</title>
 </head>
 <body>
-    <?php
-        $servernameDB = "localhost";
-        $usernameDB = "root";
-        $passwordDB = "";    
-        $dbnameDB = "cinema";
-
-        mysqli_report(MYSQLI_REPORT_OFF);
-        $conn = new mysqli($servernameDB, $usernameDB, $passwordDB, $dbnameDB);	
-        if ($conn->connect_error) {
-            header("Location: errore.html"); 
-        }
-    ?>
+    <form action="script.php" method="get">
+        <input type="text" name="titolo" placeholder="Titolo"> </br>
+        <input type="text" name="nazionalita" placeholder="Nazionalità"> </br>
+        <input type="number" name="anno" placeholder="Anno di produzione"></br>
+        <input type="text" name="regista" placeholder="Regista"></br>
+        <input type="text" name="genere" placeholder="Genere"></br>
+        <input type="submit" value="INSERISCI">
+    </form>
         
 </body>
 </html>
