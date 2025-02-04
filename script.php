@@ -11,13 +11,18 @@
 </head>
 <body>
     <?php
-        $titolo = $_GET["titolo"];
-        $nazionalita = $_GET["nazionalita"];
-        $anno = $_GET["anno"];
-        $regista = $_GET["regista"];
-        $genere = $_GET["genere"];
-        $query = "INSERT INTO film VALUES (\"$titolo\", \"$anno\", \"$nazionalita\", \"$regista\", \"$genere\")";
-        query($query);
+        $titolo = $_POST["titolo"];
+        $nazionalita = $_POST["nazionalita"];
+        $anno = $_POST["anno"];
+        $regista = $_POST["regista"];
+        $genere = $_POST["genere"];
+        $sql = "INSERT INTO film (Titolo, Annoproduzione, nazionalita, regista, genere) VALUES ('$titolo', $anno, '$nazionalita', '$regista', '$genere');";
+        if($conn->query($sql)) {
+            echo "<p>Inserimento andato a buon fine</p>";
+        } else {
+            echo "<p style='color: red;'>Inserimento non andato a buon fine</p>";
+        }
     ?>
+    <a href="Es_36.html">Torna a inserimento</a>
 </body>
 </html>
